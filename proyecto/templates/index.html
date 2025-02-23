@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<h1 class="text-primary">Preguntas Recientes</h1>
+<ul class="list-group">
+    {% for question in questions %}
+    <li class="list-group-item">
+        <a href="{{ url_for('question', id=question[0]) }}">{{ question[1] }}</a>
+
+    </li>
+    {% endfor %}
+</ul>
+{% if session['user_id'] %}
+    <a href="{{ url_for('ask') }}" class="btn btn-primary mt-3">Hacer una Pregunta</a>
+{% endif %}
+{% endblock %}

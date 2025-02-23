@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<h2 class="text-primary">Preguntas de {{ username }}</h2>
+
+<ul class="list-group">
+    {% for question in questions %}
+    <li class="list-group-item">{{ question[0] }}</li>
+    {% endfor %}
+</ul>
+
+<a href="{{ url_for('logout') }}" class="btn btn-danger mt-3">Cerrar Sesión</a>
+{% endblock %}
